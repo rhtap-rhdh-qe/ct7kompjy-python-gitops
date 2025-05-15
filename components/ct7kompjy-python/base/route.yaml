@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: ct7kompjy-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ct7kompjy-python 
+  name: ct7kompjy-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: ct7kompjy-python
+    weight: 100 
